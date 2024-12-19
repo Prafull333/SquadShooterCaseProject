@@ -4,6 +4,8 @@ using UnityEngine.AI;
 using Watermelon.Enemy;
 using Watermelon.LevelSystem;
 using Random = UnityEngine.Random;
+using System.Collections;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -633,5 +635,22 @@ namespace Watermelon.SquadShooter
             return AnimationMode.InAnimationMode();
         }
 #endif
+
+
+        public void ApplySlowdown(float slowMultiplier, float duration)
+        {
+            // Adjust movement speed
+            float originalSpeed = navMeshAgent.speed;
+            navMeshAgent.speed *= slowMultiplier;
+
+            // After duration, restore original speed
+            StartCoroutine(RestoreSpeedAfterDelay(originalSpeed, duration));
+        }
+
+        private IEnumerator RestoreSpeedAfterDelay(float originalSpeed, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            navMeshAgent.speed = originalSpeed;
+        }
     }
 }

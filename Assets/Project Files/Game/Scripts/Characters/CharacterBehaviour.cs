@@ -45,7 +45,7 @@ namespace Watermelon.SquadShooter
         public CharacterStats Stats => stats;
 
         // Gun
-        private BaseGunBehavior gunBehaviour;
+        public BaseGunBehavior gunBehaviour;
         public BaseGunBehavior Weapon => gunBehaviour;
 
         private GameObject gunPrefabGraphics;
@@ -761,6 +761,7 @@ namespace Watermelon.SquadShooter
             graphics.Jump();
             gunBehaviour.transform.localScale = Vector3.zero;
             gunBehaviour.gameObject.SetActive(false);
+            print($"GunBehavior :{gunBehaviour.gameObject.name} \n Transfrom : {gunBehaviour.transform.localScale}");
         }
 
         public void SpawnWeapon()

@@ -19,7 +19,6 @@ namespace Watermelon.SquadShooter
         protected override void OnEnemyHitted(BaseEnemyBehavior baseEnemyBehavior)
         {
             ParticlesController.PlayParticle(PARTICLE_HIT_HASH).SetPosition(transform.position);
-
             trailRenderer.Clear();
         }
 
