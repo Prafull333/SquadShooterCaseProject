@@ -61,6 +61,9 @@ namespace Watermelon.SquadShooter
         [SerializeField] Transform acidLauncherHolderTransform;
         public Transform AcidLauncherHolderTransform => acidLauncherHolderTransform;
 
+        [SerializeField] Transform shieldRevolverHolderTransform;
+        public Transform ShieldRevolverHolderTransform => shieldRevolverHolderTransform;
+
         [Space]
         [SerializeField] Rig mainRig;
         [SerializeField] Transform leftHandController;
@@ -354,6 +357,18 @@ namespace Watermelon.SquadShooter
                     acidGunHolderObject.transform.localPosition = new Vector3(0.204f, 0.7f, 0.375f);
 
                     acidLauncherHolderTransform = acidGunHolderObject.transform;
+
+
+                    // Shield Revolver
+                    GameObject shieldRevolverHolderObject = new GameObject("Shield Revolver");
+                    shieldRevolverHolderObject.transform.SetParent(weaponsTransform);
+                    shieldRevolverHolderObject.transform.ResetLocal();
+                    shieldRevolverHolderObject.transform.localPosition = new Vector3(0.204f, 0.7f, 0.375f);
+
+                    shieldRevolverHolderTransform = shieldRevolverHolderObject.transform;
+
+      
+
 
                     // Initialise mesh renderer
                     meshRenderer = tempAnimator.transform.GetComponentInChildren<SkinnedMeshRenderer>();
